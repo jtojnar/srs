@@ -1,0 +1,209 @@
+.box-shadow(@style, @c) when (iscolor(@c)) {
+	box-shadow: @style @c;
+	-webkit-box-shadow: @style @c;
+	-moz-box-shadow: @style @c;
+}
+// .box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+// 	.box-shadow(@style, rgba(0, 0, 0, @alpha));
+// }
+
+.transition(@what: all, @length: 1s, @easing: ease-in-out) {
+	-webkit-transition: @what @length @easing;
+	-moz-transition: @what @length @easing;
+	-o-transition: @what @length @easing;
+	transition: @what @length @easing;
+}
+
+.transform(@params) {
+	-webkit-transform: @params;
+	-moz-transform: @params;
+	-o-transform: @params;
+	transform: @params;
+}
+
+.transform-style(@style) {
+	-webkit-transform-style: @style;
+	-moz-transform-style: @style;
+	-o-transform-style: @style;
+	transform-style: @style;
+}
+
+.box-sizing(@sizing) {
+	-webkit-box-sizing: @sizing;
+	-moz-box-sizing: @sizing;
+	-o-box-sizing: @sizing;
+	box-sizing: @sizing;
+}
+
+.perspective(@p: 500px) {
+	-moz-transform: perspective(@p);
+	-webkit-perspective: @p;
+	-moz-perspective: @p;
+	-o-perspective: @p;
+	perspective: @p;
+}
+
+// .text-shadow(@color: #000, @xPos: 0px, @yPos: 0px, @blur: 0px) {
+// 	-webkit-text-shadow: @xPos @yPos @blur @color;
+// 	-moz-text-shadow: @xPos @yPos @blur @color;
+// 	-ms-text-shadow: @xPos @yPos @blur @color;
+// 	-o-text-shadow: @xPos @yPos @blur @color;
+// 	text-shadow: @xPos @yPos @blur @color;
+// }
+
+// .linear-gradient(@begin: black, @end: white, @switch: 100%) {
+// 	background: @begin;
+// 	background: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
+// 	background: -moz-linear-gradient(top, @begin, @end @switch);
+// 	background: -o-linear-gradient(top, @begin, @end @switch);
+// 	background: linear-gradient(top, @begin, @end @switch);
+// }
+
+.backface-visibility(@v) {
+	-webkit-backface-visibility: @v;
+	-moz-backface-visibility: @v;
+	-o-backface-visibility: @v;
+	backface-visibility: @v;
+}
+
+.box(@orient: block-axis, @align: center, @pack: center) {
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+
+	-webkit-box-orient: @orient;
+	-moz-box-orient: @orient;
+	box-orient: @orient;
+
+	-webkit-box-align: @align;
+	-moz-box-align: @align;
+	box-align: @align;
+
+	-webkit-box-pack: @pack;
+	-moz-box-pack: @pack;
+	box-pack: @pack;
+}
+
+
+@phi: 1.6180339887498948482;
+@card-height: 12em;
+@base: #21303b;
+@secondary: #ffffff;
+@tertiary: #7fb9e3;
+
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	font-family: 'Ubuntu', sans-serif;
+	word-spacing: 0.1em;
+	background: @base;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+}
+a:link {
+	color: #0C70B8;
+	border-bottom: 1px dotted;
+}
+a:visited {
+	color: #81A9C5;
+	border-bottom: 1px dotted;
+}
+a:link:hover, a:visited:hover {
+	border-bottom: 1px solid;
+}
+
+
+.container {
+	.box(block-axis, center, center);
+
+	min-height: 100%;
+	width: 100%;
+
+	.perspective(1000px);
+}
+ 
+.card {
+	position: relative;
+	background-color: #556068;
+	height: @card-height;
+	width: (@phi * @card-height);
+
+	margin: 1em;
+
+	.box-shadow(2px 2px 2px, #000);
+
+	.transform-style(preserve-3d);
+	.transition(all, 1.0s, linear);
+
+	.face {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.backface-visibility(hidden);
+		
+		&.front {
+			z-index: 5;
+			.transform(rotateY(0deg));
+			cursor: pointer;
+		}
+
+		&.back {
+			display: block;
+			.box-sizing(border-box);
+			.transform(rotateY(180deg));
+			padding: 10px;
+			// color: white;
+			// text-align: center;
+			// background-color: #aaa;
+		}
+	}
+
+	&.flip {
+		.box-shadow(-2px 2px 2px, #000);
+		.transform(rotateY(-180deg));
+	}
+}
+
+.term {
+	text-align: center;
+	font-size: 3em;
+	line-height: 1em;
+	margin-top: 0.75em;
+	font-weight: bold;
+}
+
+.toolbar {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+
+	button {
+		-webkit-appearance: none;
+		border: none;
+		border-bottom: 4px solid @secondary;
+		color: @secondary;
+		background: transparent;
+		font-weight: bold;
+		cursor: pointer;
+		margin: 0 0.1em;
+		padding: 0.1em 0.3em;
+
+		&:hover, &:focus {
+			border-bottom: 4px solid @tertiary;
+			color: @tertiary;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"name": "srs",
+	"description": "helps you memorize stuff by intelligent srs cards",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "3.0.0rc4",
+		"sqlite3": ">= 2.1",
+		"kiwi": "*",
+		"less-middleware": "*"
+
+	}
+}
