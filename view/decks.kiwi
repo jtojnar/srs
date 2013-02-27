@@ -1,0 +1,12 @@
+{{extend 'layout'}}
+{{block content}}
+<h2>Decks</h2>
+{{each(deck, id) decks}}
+<div class="deck">
+<a href="/${deck.slug}">
+<h3>${deck.name}</h3>
+<p>New: ${deck.stats.new}, review: ${deck.stats.review}, again: ${deck.stats.again}</p>
+</a>
+</div>
+{{/each}}
+{{/block}}
