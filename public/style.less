@@ -89,8 +89,12 @@
 @phi: 1.6180339887498948482;
 @layout-width: 20em;
 @base: #21303b;
-@secondary: #ffffff;
+@secondary: #556068;
 @tertiary: #7fb9e3;
+@complementary: #ffffff;
+@anticomplementary: #000000;
+@link-color: #0c70b8;
+@link-visited-color: #81a9c5;
 
 html {
 	-webkit-font-smoothing: antialiased;
@@ -106,18 +110,18 @@ body {
 	font-family: 'Ubuntu', sans-serif;
 	word-spacing: 0.1em;
 	background: @base;
-	color: #fff;
+	color: @complementary;
 }
 
 a {
 	text-decoration: none;
 }
 a:link {
-	color: #0C70B8;
+	color: @link-color;
 	border-bottom: 1px dotted;
 }
 a:visited {
-	color: #81A9C5;
+	color: @link-visited-color;
 	border-bottom: 1px dotted;
 }
 a:link:hover, a:visited:hover {
@@ -136,13 +140,13 @@ a:link:hover, a:visited:hover {
  
 .card {
 	position: relative;
-	background-color: #556068;
+	background-color: @secondary;
 	height: @layout-width / @phi;
 	width: @layout-width;
 
 	margin: 1em;
 
-	.box-shadow(2px 2px 2px, #000);
+	.box-shadow(2px 2px 2px, @anticomplementary);
 
 	.transform-style(preserve-3d);
 	.transition(all, 1.0s, linear);
@@ -164,14 +168,11 @@ a:link:hover, a:visited:hover {
 			.box-sizing(border-box);
 			.transform(rotateY(180deg));
 			padding: 10px;
-			// color: white;
-			// text-align: center;
-			// background-color: #aaa;
 		}
 	}
 
 	&.flip {
-		.box-shadow(-2px 2px 2px, #000);
+		.box-shadow(-2px 2px 2px, @anticomplementary);
 		.transform(rotateY(-180deg));
 	}
 }
@@ -193,8 +194,8 @@ a:link:hover, a:visited:hover {
 	button {
 		-webkit-appearance: none;
 		border: none;
-		border-bottom: 4px solid @secondary;
-		color: @secondary;
+		border-bottom: 4px solid @complementary;
+		color: @complementary;
 		background: transparent;
 		font-weight: bold;
 		cursor: pointer;
