@@ -87,7 +87,7 @@
 
 
 @phi: 1.6180339887498948482;
-@card-height: 12em;
+@layout-width: 20em;
 @base: #21303b;
 @secondary: #ffffff;
 @tertiary: #7fb9e3;
@@ -137,8 +137,8 @@ a:link:hover, a:visited:hover {
 .card {
 	position: relative;
 	background-color: #556068;
-	height: @card-height;
-	width: (@phi * @card-height);
+	height: @layout-width / @phi;
+	width: @layout-width;
 
 	margin: 1em;
 
