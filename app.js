@@ -23,7 +23,7 @@ app.configure(function(){
 	});
 
 	app.use(express.compress());
-	app.use(require('less-middleware')({ src: publicDir }));
+	app.use(require('less-middleware')({src: publicDir}));
 	app.use(express.favicon());
 	app.use(express.static(publicDir));
 });
@@ -42,7 +42,7 @@ app.get('/decks', function(req, res){
 
 app.get('/:deck', function(req, res){
 	var deck = null;
-	for (var i = 0; i < decks.length; i++) {
+	for(var i = 0; i < decks.length; i++) {
 		if(decks[i].slug == req.params.deck) {
 			deck = decks[i];
 		}
