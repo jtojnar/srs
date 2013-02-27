@@ -115,17 +115,15 @@ body {
 
 a {
 	text-decoration: none;
-}
-a:link {
 	color: @link-color;
 	border-bottom: 1px dotted;
-}
-a:visited {
-	color: @link-visited-color;
-	border-bottom: 1px dotted;
-}
-a:link:hover, a:visited:hover {
-	border-bottom: 1px solid;
+
+	&:visited {
+		color: @link-visited-color;
+	}
+	&:hover {
+		border-bottom: 1px solid;
+	}
 }
 
 
