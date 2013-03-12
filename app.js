@@ -26,6 +26,7 @@ app.configure(function(){
 	app.use(require('less-middleware')({src: publicDir}));
 	app.use(express.favicon());
 	app.use(express.static(publicDir));
+	app.use('/components', express.static(path.join(__dirname, 'components')));
 });
 app.configure('development', function(){
 	app.use(express.logger());

@@ -10,5 +10,4 @@ TODO
 ----
 
 1. Name
-2. Download client libraries to public using npm install?
-3. Everything else
+2. Everything else

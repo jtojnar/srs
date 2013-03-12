@@ -1,0 +1,8 @@
+{
+	"name": "srs",
+	"version": "0.0.1",
+	"dependencies": {
+		"jquery": "~1.9.1",
+		"idbwrapper": "~1.0.0"
+	}
+}
